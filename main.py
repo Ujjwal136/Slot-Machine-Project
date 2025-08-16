@@ -7,8 +7,19 @@ MAX_COLS = 3
 MAX_BETS = 3
 MIN_BETS = 1
 
+symbol_count = {
+    "@": 6,
+    "#": 8,
+    "$": 4,
+    "&": 8
+}
 def get_Slot_values():
-    symbols = ["@","@","@","@","!","!","!","!","$","$","&","&","&","&","&","&","&","&"]
+    symbols = []
+    for symbol,count in symbol_count.items():
+        for _ in range(count):
+            symbols.append(symbol)
+
+
     print("The Slot Machine is Running!")
     a = random.choice(symbols)
     b = random.choice(symbols)
