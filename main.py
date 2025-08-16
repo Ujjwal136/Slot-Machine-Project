@@ -7,6 +7,19 @@ MAX_COLS = 3
 MAX_BETS = 3
 MIN_BETS = 1
 
+def get_Slot_values():
+    symbols = ["@","@","@","@","!","!","!","!","$","$","&","&","&","&","&","&","&","&"]
+    print("The Slot Machine is Running!")
+    a = random.choice(symbols)
+    b = random.choice(symbols)
+    c = random.choice(symbols)
+
+    print("The Result of Slot Machines are:")
+    result = (f"{a} {b} {c}")
+    return result
+
+
+
 def deposit():
     
     while True:
@@ -60,5 +73,6 @@ def main():
         else :
             print("Your Betting amount is Larger than Your Deposit!")
             break
-
+    result = get_Slot_values()
+    print(result)
 main()
