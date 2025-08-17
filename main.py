@@ -24,12 +24,21 @@ def get_Slot_values():
     col = MAX_COLS
     matrix = []
 
-    for _ in range(row):
-        line = [] 
-        for _ in range(col):
-            line.append(random.choice(symbols))
-        matrix.append(line)
+    for _ in range(col):
+        column = [] 
+        for _ in range(row):
+            column.append(random.choice(symbols))
+        matrix.append(column)
     return matrix
+
+def print_slot_machine(columns):
+    for row in range(len(columns[0])):
+        for i , column in enumerate(columns):
+            if i < (len(columns)-1):
+                print(column[row], end = "|")
+            else:
+                print(column[row], end = "")    
+        print()
 
 def deposit():
     
@@ -85,6 +94,6 @@ def main():
             print("Your Betting amount is Larger than Your Deposit!")
             break
     value = get_Slot_values()
-    print(value)
+    print_slot_machine(value)
     
 main()
