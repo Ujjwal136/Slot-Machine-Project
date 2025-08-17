@@ -13,23 +13,23 @@ symbol_count = {
     "$": 4,
     "&": 8
 }
+
 def get_Slot_values():
     symbols = []
     for symbol,count in symbol_count.items():
         for _ in range(count):
             symbols.append(symbol)
+    
+    row = MAX_ROWS
+    col = MAX_COLS
+    matrix = []
 
-
-    print("The Slot Machine is Running!")
-    a = random.choice(symbols)
-    b = random.choice(symbols)
-    c = random.choice(symbols)
-
-    print("The Result of Slot Machines are:")
-    result = (f"{a} {b} {c}")
-    return result
-
-
+    for _ in range(row):
+        line = [] 
+        for _ in range(col):
+            line.append(random.choice(symbols))
+        matrix.append(line)
+    return matrix
 
 def deposit():
     
@@ -84,6 +84,7 @@ def main():
         else :
             print("Your Betting amount is Larger than Your Deposit!")
             break
-    result = get_Slot_values()
-    print(result)
+    value = get_Slot_values()
+    print(value)
+    
 main()
