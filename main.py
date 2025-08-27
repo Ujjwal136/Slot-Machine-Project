@@ -62,20 +62,20 @@ def lines():
             if MAX_BETS >= lines >= MIN_BETS:
                 break
             else:
-                print("Please Enter the Correct Amount of Lines you want to Bet on! ")
+                print("Please Enter the Valid Amount of Lines you want to Bet on! ")
         else:
             print("Please Enter Number of lines only! ")
     return lines
 
-def bet_amount():
+def bet_amount(Amount,line):
     while True:
-        bets = input(f"Enter the Amount of bet on each line! ")
+        bets = input(f"Enter the Amount of bet on each line! $")
         if bets.isdigit():
             bets = int(bets)
-            if 1 <= bets <= 100:
+            if 1 <= bets <= Amount/line:
                 break
             else:
-                print("Please Enter the Amount between [$1 to $100] ")
+                print(f"Please Enter the Amount between $1 to ${round(Amount/line,1)}  ")
         else:
             print("Please Enter valid Amount! ")
     return bets
@@ -86,7 +86,7 @@ def main():
     print(f"Total Amount you deposited is ${balance}")
     print(f"Number of Lines you choose to Bet are {line}")
     while True:
-        bet = bet_amount()
+        bet = bet_amount(balance,line)
         if (bet*line) <= balance:
             print(f"Your Total Bet is ${bet * line}")
             break
