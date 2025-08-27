@@ -80,6 +80,28 @@ def bet_amount(Amount,line):
             print("Please Enter valid Amount! ")
     return bets
 
+def lines_win(values):
+    data = values
+    list1, list2, list3 = data
+    line_win = []
+    # a = list1[0]
+    # for i in list1[1:]:
+    #     if a != i:
+    #         break
+    #     return True
+    # We can also convert into sets
+    a = list(set(list1))
+    b = list(set(list2))
+    c = list(set(list3))
+    if len(a) == 1:
+        lines_win.append(1)
+    if len(b) == 1:
+        lines_win.append(1)
+    if len(c) == 1:
+        lines_win.append(1)
+
+    return len(line_win)
+
 def main():
     balance = deposit()
     line = lines()
@@ -95,5 +117,8 @@ def main():
             break
     value = get_Slot_values()
     print_slot_machine(value)
+    print(f"You won Total {lines_win(value)} Lines!")
+
+
     
 main()
