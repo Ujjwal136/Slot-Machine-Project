@@ -8,10 +8,10 @@ MAX_BETS = 3
 MIN_BETS = 1
 
 symbol_count = {
-    "@": 6,
-    "#": 8,
-    "$": 4,
-    "&": 8
+    "🐵": 8,
+    "🍀": 6,
+    "💵": 4,
+    "🍒": 8
 }
 
 def get_Slot_values():
