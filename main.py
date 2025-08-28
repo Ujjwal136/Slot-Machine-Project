@@ -94,13 +94,28 @@ def lines_win(values):
     b = list(set(list2))
     c = list(set(list3))
     if len(a) == 1:
-        lines_win.append(1)
+        line_win.append(1)
     if len(b) == 1:
-        lines_win.append(1)
+        line_win.append(1)
     if len(c) == 1:
-        lines_win.append(1)
+        line_win.append(1)
 
     return len(line_win)
+
+def winings(line,bet,balance):
+    # if line == MAX_BETS:
+    #     print(f"Congrats!, You win all the lines. You won total ${bet * MAX_BETS}")
+    # elif (line == (MAX_BETS - 1)):
+    #     print(f"Congrats!, You win {MAX_BETS-1} lines. You won total ${bet * (MAX_BETS - 1)}")
+    # else:
+    total_amount = 0
+    if line > 0:
+        print(f"You win ${bet * line} :). Amount is debited in your Account.")
+        total_amount += (bet * line)
+        print(f"{total_amount} added to your Wallet!")
+    else:
+        print("Better Luck Next Time :(")
+        return total_amount
 
 def main():
     balance = deposit()
@@ -117,8 +132,12 @@ def main():
             break
     value = get_Slot_values()
     print_slot_machine(value)
+    win = lines_win(value)
     print(f"You won Total {lines_win(value)} Lines!")
-
+    amount_win = winings(win,bet,balance)
+    new_balance = balance - (bet*line)
+    new_balance += amount_win
+    print(f"Updated amount in your Wallet is, ${new_balance}")
 
     
 main()
